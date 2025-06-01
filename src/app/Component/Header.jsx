@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import '@/app/globals.css'
 import { CiSearch } from "react-icons/ci";
 import { FiShoppingCart } from "react-icons/fi";
@@ -13,12 +13,20 @@ import Image from 'next/image';
 
 function Header() {
 
+    let [list,setList]=useState([])
+
     useEffect(()=>{
+        fetch(`https://dummyjson.com/products/categories`).then(a=>a.json()).then(b=>setList(b))
+
         document.querySelector('.location').onclick=()=>{
             document.querySelector('.locationPopup').classList.toggle('show')
         }
         document.querySelector('.locationPopupRemove').onclick=()=>{
             document.querySelector('.locationPopup').classList.remove('show')
+        }
+
+        document.querySelector('.category').onclick=()=>{
+            document.querySelector('.categoryPopup').classList.toggle('show')
         }
     },[])
 
@@ -26,8 +34,8 @@ function Header() {
     <>
     <header>
         <div className='top bg-[#161D28] text-[white]'>
-            <div className='container mx-auto pt-2 pb-1 flex  relative '>
-                <div className='flex justify-center items-center w-[160px] p-1 me-2 h-[50px] overflow-hidden border border-transparent hover:border-white '><Link href='/'> <Image src='/Images/amazon-logo.jpg' width={140} height={130}/></Link></div>
+            <div className='container mx-auto pt-2 pb-1 flex justify-evenly  relative '>
+                <div className='flex justify-center items-center w-[160px] p-1 me-2 h-[50px] overflow-hidden border border-transparent hover:border-white '><Link href='/'> <Image src='/Images/amazon-logo.jpg' width={140} height={130} alt=''/></Link></div>
                 <div className='location p-1 border border-transparent hover:border-white'>
                     <div className='text-[12px] text-[#E6E6E6]'>Deliver to</div>
                     <div className='flex font-bold text-[13px]'>
@@ -36,7 +44,7 @@ function Header() {
                     </div>
                 </div>
                 <div className='flex justify-center mx-5'>
-                    <div className='bg-[#E6E6E6] flex gap-2 justify-center items-center px-2 h-[40px] text-[gray] text-[12px] hover:text-[black] hover:bg-[#D4D4D4] rounded-l-sm'>
+                    <div className='category bg-[#E6E6E6] flex gap-2 justify-center items-center px-2 h-[40px] text-[gray] text-[12px] hover:text-[black] hover:bg-[#D4D4D4]  rounded-l-sm'>
                         <div>All</div>
                         <div><IoMdArrowDropdown /></div>
                     </div>
@@ -49,7 +57,7 @@ function Header() {
                         <div>Account and Lists</div>
                     </div>
                 </div>
-                        <div className='absolute bottom-4 right-49'><IoMdArrowDropdown color='#A7ACB2' size={15} /></div>
+                        <div className='absolute bottom-4 right-47'><IoMdArrowDropdown color='#A7ACB2' size={15} /></div>
                 <div className='mx-3 p-1 border border-transparent hover:border-white'>
                         <div className='text-[12px] '>Returns</div>
                         <div className='text-[13px] font-bold'>& Orders</div>    
@@ -120,6 +128,15 @@ function Header() {
             <div className='bg-[#ffda44] hover:bg-[#ffce12] rounded-2xl text-[14px] px-3 py-1 inline-block '>Done</div>
         </div>
 
+        </div>
+    </div>
+
+    <div className='categoryPopup hidden'>
+        <div className='w-[200px] h-[450px] overflow-y-scroll bg-white absolute left-70 top-10 z-99999'>
+            {list.map((a)=>(
+                <div key={a.name}><Link href={`/category/${a.slug}`}> <div className='px-2 text-[14px] py-1 hover:bg-blue-700 hover:text-white'>{a.name}</div></Link></div>
+            ))}
+ 
         </div>
     </div>
       

@@ -8,7 +8,7 @@ function Category(props) {
     let [product,setProduct]=useState([])
     useEffect(()=>{
         fetch(`https://dummyjson.com/products/category/${props.title}`).then(a=>a.json()).then(b=>setProduct(b.products))
-    })
+    },[])
   return (
     <>
     <div className="p-4 pb-2 font-bold text-[24px]">Best Sellers in {props.title}</div>

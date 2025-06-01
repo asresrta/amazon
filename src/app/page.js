@@ -15,7 +15,7 @@ export default function Home() {
   let[product,setProduct]=useState([])
   useEffect(()=>{
     fetch(`https://dummyjson.com/products`).then(a=>a.json()).then(b=>setProduct(b.products ))
-  })
+  },[])
 
   return (
     <>
@@ -25,7 +25,7 @@ export default function Home() {
           <h1 className="aman">.................Aman is Gay...............</h1>
           <h1 className="kelvin">...............Kelvin is Nigga.............</h1>
       </div>
-      <div className="">
+      <div className="bann">
     <Swiper
         loop={true}
         navigation={true}
@@ -35,7 +35,7 @@ export default function Home() {
       {banner.map((a)=>(
             
               <SwiperSlide key={a.id}>
-                <div className="bg-linear-to-b from-black/50 to white/0"><img src={a.img} alt=""/></div> </SwiperSlide>
+                <div className=""><img src={a.img} alt=""/></div> </SwiperSlide>
           ))}
 
       </Swiper>
@@ -47,7 +47,7 @@ export default function Home() {
           <div className="flex justify-evenly flex-wrap gap-6">
             <div className="w-[23.5%] bg-white">
               <div className="productBox p-5 h-[430px] relative">
-                <h1 className="font-bold text-[22px]">Shop for your home essentials</h1>
+                <h1 className="font-bold text-[22px]">Home essentials</h1>
                 <div><Category title="home-decoration"/> </div>
               </div>   
             </div>
@@ -146,50 +146,50 @@ export default function Home() {
           <div className="flex justify-evenly flex-wrap gap-6">
             <div className="w-[23.5%] bg-white">
               <div className="productBox p-5 h-[430px] relative">
-                <h1 className="font-bold text-[22px]">Shop for your home essentials</h1>
+                <h1 className="font-bold text-[22px]">Mens Shirts</h1>
                 <div><Category title="mens-shirts"/> </div>
               </div>   
             </div>
              <div className="w-[23.5%] bg-white h-[430px] relative">
               <div className="productBox p-5">
-              <h1 className="font-bold text-[18px] bg-white">Get your game on</h1>
+              <h1 className="font-bold text-[18px] bg-white">Mens Shoes</h1>
                 <div><Category title="mens-shoes"/> </div>
 
               </div>
             </div>
              <div className="w-[23.5%] bg-white h-[430px] relative">
               <div className="productBox p-5 h-[430px] relative">
-              <h1 className="font-bold text-[18px]">Fashion for less</h1>
+              <h1 className="font-bold text-[18px]">Mens Watches</h1>
                 <div><Category title="mens-watches"/> </div>
               </div>
             </div>
              <div className="w-[23.5%]  bg-white h-[430px] relative">
               <div className="productBox p-5 h-[430px] relative">
-              <h1 className="font-bold text-[18px]">Top categories in Kitchen appliances</h1>
+              <h1 className="font-bold text-[18px]">Womens Bags</h1>
                 <div><Category title="womens-bags" /> </div>
               </div>
             </div>
             <div className="w-[23.5%]  bg-white h-[430px] relative">
               <div className="productBox p-5 h-[430px] relative">
-              <h1 className="font-bold text-[18px]">Best Mobile Accessories</h1>
+              <h1 className="font-bold text-[18px]">Womens Jewellery</h1>
                 <div><Category title="womens-jewellery"/> </div>
               </div>
             </div>
             <div className="w-[23.5%] bg-white h-[430px] relative">
               <div className="productBox p-5 h-[430px] relative">
-              <h1 className="font-bold text-[18px]">Latest Skin Care</h1>
+              <h1 className="font-bold text-[18px]">Womens Shoes</h1>
                 <div><Category title="womens-shoes"/> </div>
               </div>
             </div>
             <div className="w-[23.5%] bg-white h-[430px] relative">
               <div className="productBox p-5 h-[430px] relative">
-              <h1 className="font-bold text-[18px]">Cool Glasses</h1>
+              <h1 className="font-bold text-[18px]">Womens Watches</h1>
                 <div><Category title="womens-watches"/> </div>
               </div>
             </div>
             <div className="w-[23.5%] bg-white h-[430px] relative">
               <div className="productBox p-5">
-              <h1 className="font-bold text-[18px]">New Car Arrivals</h1>
+              <h1 className="font-bold text-[18px]">Fragnances</h1>
                 <div><Category title="fragrances"/> </div>
               </div>
             </div>
