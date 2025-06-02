@@ -103,7 +103,7 @@ export default function Home() {
       </div>
 
       <div className="container mx-auto bg-white my-5">
-            <CategorySlider title='laptops'/>
+            <CategorySlider title='mobile-accessories'/>
       </div>
 
       <div className="container mx-auto">

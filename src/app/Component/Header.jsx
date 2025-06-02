@@ -28,13 +28,14 @@ function Header() {
         document.querySelector('.category').onclick=()=>{
             document.querySelector('.categoryPopup').classList.toggle('show')
         }
+
     },[])
 
   return (
     <>
     <header>
         <div className='top bg-[#161D28] text-[white]'>
-            <div className='container mx-auto pt-2 pb-1 flex justify-evenly  relative '>
+            <div className='container mx-auto pt-2 pb-1 flex justify-evenly  relative  cursor-pointer '>
                 <div className='flex justify-center items-center w-[160px] p-1 me-2 h-[50px] overflow-hidden border border-transparent hover:border-white '><Link href='/'> <Image src='/Images/amazon-logo.jpg' width={140} height={130} alt=''/></Link></div>
                 <div className='location p-1 border border-transparent hover:border-white'>
                     <div className='text-[12px] text-[#E6E6E6]'>Deliver to</div>
@@ -51,11 +52,62 @@ function Header() {
                     <div><input className='bg-[white] text-[black] h-[40px] w-[620px]  px-2' type='text' name='search' placeholder='Search Amazon'/> </div>
                     <div className='bg-[#FEBD69] flex justify-center items-center h-[40px] px-3 hover:bg-[#F3A847] rounded-r-sm'><CiSearch color='black' size={25} /></div>
                 </div>
-                <div className='me-3 p-1 border border-transparent hover:border-white'>
+                <div className='group me-3 p-1 border border-transparent hover:border-white'>
                     <div className='text-[12px]'>Hello, sign in</div>
                     <div className=' flex text-[13px] font-bold'>
                         <div>Account and Lists</div>
                     </div>
+
+                        <div className='signupPopup hidden group-hover:block'>
+        <div className='signupBox w-[500px] text-[black] bg-white absolute top-16 right-15 rounded z-999'>
+            <div>
+                <div className='pt-2 pb-1 flex justify-center items-center text-center'>
+                    <Link href={`/register/login`}>
+                    <div className='bg-[orange] py-1 px-20 rounded-2xl shadow-2xl hover:underline'>Sign in</div>
+                    </Link>
+                </div>
+                <div className='flex justify-center gap-1 text-[12px]'>
+                    <div>New Customer?</div>
+                    <div className='text-blue-900 underline'>Start Here</div>
+                </div>
+                <div className="line w-[97%] mx-auto h-[1px] my-1 bg-[#b1abab]"></div>
+            </div>
+            <div className='flex justify-between gap-2 p-3'>
+                <div className='w-[48%] border-r border-[#b1abab]'>
+                    <div>
+                    <div className='font-bold text-[16px]'>Your Lists</div>
+                    <div className='text-[14px] text-[#555252] pt-1 '>
+                        <ul>
+                        <li>Create a List</li>
+                        <li>Find a List or Registry</li>
+                        </ul>
+                    </div>
+                    </div>
+                </div>
+                <div className='w-[48%]'>
+                <div className='font-bold text-[16px] '>Your Account</div>
+                <div className='text-[14px] text-[#555252] pt-1'>
+                    <ul>
+                        <li>Account</li>
+                        <li>Orders</li>
+                        <li>Recommendations</li>
+                        <li>Browsing History</li>
+                        <li>Watchlist</li>
+                        <li>Video Purchases & Rentals</li>
+                        <li>Kindle Unlimited</li>
+                        <li>Content & Devices</li>
+                        <li>Subscribe & Save Items</li>
+                        <li>Memberships & Subscriptions</li>
+                        <li>Music Library</li>
+                    </ul>
+                </div>
+                </div>
+            </div>
+
+        </div>
+        <div className="w-0 h-0 border-l-[15px] border-l-transparent border-b-[25px] border-b-white border-r-[15px] border-r-transparent absolute top-13 right-45"></div>   
+                        </div>
+
                 </div>
                         <div className='absolute bottom-4 right-47'><IoMdArrowDropdown color='#A7ACB2' size={15} /></div>
                 <div className='mx-3 p-1 border border-transparent hover:border-white'>
@@ -71,7 +123,7 @@ function Header() {
 
         </div>
         <div className="bottom bg-[#232F3E] text-[14px] h-[40px]">
-            <div className='container mx-auto flex text-[white] gap-2'>
+            <div className='container mx-auto flex text-[white] gap-2  cursor-pointer'>
             <div className='flex p-2 border border-transparent hover:border-white'>
                 <div className='flex justify-center items-center me-2'><FaBars /></div>
                 <div>All</div>
@@ -139,6 +191,8 @@ function Header() {
  
         </div>
     </div>
+
+    
       
     </>
   )

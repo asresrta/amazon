@@ -19,7 +19,7 @@ function Category(props) {
               <div className='text-[12px] flex flex-col text-center items-center'>{a.title}</div>
               </Link>
             </div>
-            <div className='absolute bottom-0 left-1 p-3 text-blue-800 text-[12px]'><Link href={`/category/${a.category}`}> Explore all Products</Link></div>
+            <div className='absolute bottom-0 left-1 p-3 text-blue-800 text-[12px] hover:text-blue-950'><Link href={`/category/${a.category}`}> Explore all Products</Link></div>
             </div>
 
             ))}
