@@ -9,22 +9,16 @@ import 'swiper/css/navigation';
 import { Navigation, Pagination } from 'swiper/modules';
 import CategorySlider from "./Pages/CategorySlider";
 import Category from "./Pages/Category";
+import Link from "next/link";
 
 export default function Home() {
 
-  let[product,setProduct]=useState([])
-  useEffect(()=>{
-    fetch(`https://dummyjson.com/products`).then(a=>a.json()).then(b=>setProduct(b.products ))
-  },[])
 
   return (
     <>
     
-    <section className="banner">
-      <div className="w-full h-[200px] flex flex-col gap-10 justify-center items-center text-6xl font-bold">
-          <h1 className="aman">.................Aman is Gay...............</h1>
-          <h1 className="kelvin">...............Kelvin is Nigga.............</h1>
-      </div>
+    <section className="banner bg-white">
+      
       <div className="bann">
     <Swiper
         loop={true}
@@ -35,17 +29,22 @@ export default function Home() {
       {banner.map((a)=>(
             
               <SwiperSlide key={a.id}>
-                <div className=""><img src={a.img} alt=""/></div> </SwiperSlide>
+                
+                  <div className="image-fade relative">
+                    <img className="" src={a.img} alt=""/>
+                    </div>
+                     </SwiperSlide>
           ))}
 
       </Swiper>
       </div>    
     </section>
 
-    <section className="products pb-5">
+    <section className="products pb-5 relative -top-60 -mb-60 z-9">
+      <div className="">
       <div className="container mx-auto">
-          <div className="flex justify-evenly flex-wrap gap-6">
-            <div className="w-[23.5%] bg-white">
+          <div className="flex justify-evenly flex-wrap gap-5">
+            <div className="w-[24%] bg-white">
               <div className="productBox p-5 h-[430px] relative">
                 <h1 className="font-bold text-[22px]">Home essentials</h1>
                 <div><Category title="home-decoration"/> </div>
@@ -197,13 +196,16 @@ export default function Home() {
       </div>
       </div>
           
-          
+       </div>   
           
         
       
 
     </section>
     
+    <section className='up'>
+        <Link href='/'><div className='bg-[#37475A] hover:bg-[#485769] py-3 text-[white] text-[14px] flex justify-center items-center'>Back to top</div></Link>
+      </section>
     
     
     

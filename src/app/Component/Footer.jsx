@@ -5,9 +5,7 @@ function Footer() {
   return (
     <>
     <footer>
-      <section className='up'>
-        <Link href='/'><div className='bg-[#37475A] hover:bg-[#485769] py-3 text-[white] text-[14px] flex justify-center items-center'>Back to top</div></Link>
-      </section>
+      
 
       <section className='middle bg-[#232F3E]'>
         <div className='flex justify-between gap-9 py-9 text-[17px] w-[1000px] mx-auto'>

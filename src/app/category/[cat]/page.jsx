@@ -1,11 +1,13 @@
 "use client"
+import { CartContext } from '@/app/Component/ContextProvider';
 import Link from 'next/link';
-import React, { use, useEffect, useState } from 'react'
+import React, { use, useContext, useEffect, useState } from 'react'
 import { LiaStarSolid } from "react-icons/lia";
 
 
 function page({params}) {
   let {cat}=use(params)
+  let {state,dispatch}=useContext(CartContext)
   let [product,setProduct]=useState([])
   useEffect(()=>{
     fetch(`https://dummyjson.com/products/category/${cat}`).then(a=>a.json()).then(b=>setProduct(b.products))
@@ -72,7 +74,10 @@ function page({params}) {
                       <div className='flex flex-col justify-center items-center'><LiaStarSolid color='orange' /></div><div className='text-gray-700'>{a.rating}</div>
                       </div>
                     <div className='py-2'>$ {a.price}</div>
+                    <div className='flex gap-2'>
                     <div className='inline-block text-[14px] px-3 py-1 rounded-2xl border border-[gray] hover:bg-[#e7e7e7]'><Link href={`/details/${a.id}`}>See Options</Link> </div>
+                    <div className='inline-block text-[14px] px-3 py-1 rounded-2xl bg-yellow-400 hover:bg-yellow-500 cursor-pointer' onClick={()=>dispatch({type:'add',payload:a})}>Add to Cart</div>                    
+                    </div>
                     <div className='py-2'>In stock: {a.stock}</div>
                   </div>
                    </div>
@@ -82,6 +87,10 @@ function page({params}) {
         </div>
       </div>
     </section>
+
+    <section className='up'>
+        <Link href={`/category/${cat}`}><div className='bg-[#37475A] hover:bg-[#485769] py-3 text-[white] text-[14px] flex justify-center items-center'>Back to top</div></Link>
+      </section>
 
     
 

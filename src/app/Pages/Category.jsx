@@ -14,8 +14,8 @@ function Category(props) {
                     {product.slice(0,4).map((a)=>(
         <div key={a.id} className='w-[48%]'>
             <div className=''>
-              <Link href={`/category/${a.category}`}>
-              <img src={a.thumbnail} alt=''/>
+              <Link href={`/details/${a.id}`}>
+              <img className='hover:scale-[1.2]' src={a.thumbnail} alt=''/>
               <div className='text-[12px] flex flex-col text-center items-center'>{a.title}</div>
               </Link>
             </div>

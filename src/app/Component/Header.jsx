@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import '@/app/globals.css'
 import { CiSearch } from "react-icons/ci";
 import { FiShoppingCart } from "react-icons/fi";
@@ -9,14 +9,28 @@ import { IoLocationOutline } from "react-icons/io5";
 import { RxCross2 } from "react-icons/rx";
 import Link from 'next/link';
 import Image from 'next/image';
+import { CartContext } from './ContextProvider';
 
 
 function Header() {
+
+    let {state,dispatch}=useContext(CartContext)
+
 
     let [list,setList]=useState([])
 
     useEffect(()=>{
         fetch(`https://dummyjson.com/products/categories`).then(a=>a.json()).then(b=>setList(b))
+
+        window.addEventListener('scroll',()=>{
+            if(window.scrollY>50)
+            {
+                document.querySelector('header').classList.add('psticky')
+            }
+            else{
+                document.querySelector('header').classList.remove('psticky')
+            }
+        })
 
         document.querySelector('.location').onclick=()=>{
             document.querySelector('.locationPopup').classList.toggle('show')
@@ -33,7 +47,7 @@ function Header() {
 
   return (
     <>
-    <header>
+    <header className='z-9999'>
         <div className='top bg-[#161D28] text-[white]'>
             <div className='container mx-auto pt-2 pb-1 flex justify-evenly  relative  cursor-pointer '>
                 <div className='flex justify-center items-center w-[160px] p-1 me-2 h-[50px] overflow-hidden border border-transparent hover:border-white '><Link href='/'> <Image src='/Images/amazon-logo.jpg' width={140} height={130} alt=''/></Link></div>
@@ -114,15 +128,17 @@ function Header() {
                         <div className='text-[12px] '>Returns</div>
                         <div className='text-[13px] font-bold'>& Orders</div>    
                 </div>
-                    <div className='flex mx-3 p-1 border border-transparent hover:border-white'>
-                        <div className='flex justify-center items-center'><FiShoppingCart size={30} /></div>
+                   <Link href={`/cart`}>  <div className='flex mx-3 p-1 border border-transparent hover:border-white relative'>
+                    <div className='flex justify-center items-center'><FiShoppingCart size={30} /></div>
                         <div className='font-bold mt-5'>Cart</div>
+                        <div className='absolute top-2 right-3'>{state.cart.length}</div>
                     </div>
+                    </Link>
                 
             </div>
 
         </div>
-        <div className="bottom bg-[#232F3E] text-[14px] h-[40px]">
+        <div className="nav bottom bg-[#232F3E] text-[14px] h-[40px]">
             <div className='container mx-auto flex text-[white] gap-2  cursor-pointer'>
             <div className='flex p-2 border border-transparent hover:border-white'>
                 <div className='flex justify-center items-center me-2'><FaBars /></div>

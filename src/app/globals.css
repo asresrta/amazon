@@ -23,7 +23,23 @@
       max-width: var(--container-max-width-lg);
     }
   }
+  .psticky{
+    position: sticky;
+    top:0;
+    
+    .nav{
+      display:none;
+      transition: 0.1s;
+    }
+  }
 
+  .image-fade img {
+  display: block;
+  width: 100%;
+  height: auto;
+  mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+}
   .center{
     position:fixed;
     top:50%;
@@ -48,8 +64,10 @@
       background: linear-gradient(rgba(0, 0, 0, 0.5),rgba(0, 0, 0, 0.527) ) !important;
     }
 
-    .swiper-button-prev, .swiper-button-next{
+    .mySwiper1 .swiper-button-prev, .mySwiper1 .swiper-button-next{
       color: black !important;
+      position: absolute !important;
+      top:180px !important;
     }
 
     
