@@ -10,8 +10,8 @@ function page() {
     <>
                
         {(state.cart.length>0)? <div>
-            <div className='w-[98%] mx-auto  my-4 flex gap-3' >
-        <div className='p-3 w-[80%] bg-white'>
+            <div className='w-[98%] mx-auto  md:my-4 lg:my-4 md:flex lg:flex gap-3' >
+        <div className='p-3  md:w-[70%] lg:w-[80%] bg-white'>
             <div className='font-semibold text-[28px] px-7'>Shopping Cart</div> 
             <div className='flex justify-end px-8'>Price</div>
             <div className='w-[95%] mx-auto h-[1px] bg-[gray] mb-3'></div>
@@ -41,7 +41,7 @@ function page() {
          ))}
          </div>
 
-         <div className='w-[20%] h-[120px] bg-white'>
+         <div className=' md:w-[30%] lg:w-[20%] h-[120px] bg-white'>
             <div className='p-6'>
                 <div className='font-semibold text-[18px]'>Subtotal ({state.cart.length} items): $0</div>
                 <div className='bg-yellow-400 hover:bg-yellow-600 text-center rounded-2xl py-1 mt-2'>Proceed to Checkout</div>
@@ -52,7 +52,7 @@ function page() {
             
         </div>
         </div>:
-        <div className='w-[97%] mx-auto my-4 bg-white'>
+        <div className='w-[97%] mx-auto md:my-4 lg:my-4 bg-white'>
             <div className='px-3 py-3'>
             <h1 className='text-[24px] font-semibold py-2'>Your Amazon Cart is empty</h1>
             <p className='w-[70%] text-[13px] pt-3'>Your Shopping Cart lives to serve. Give it purpose — fill it with groceries, clothing, household supplies, electronics, and more.

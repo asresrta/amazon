@@ -5,7 +5,7 @@ function page() {
   return (
     <>
     <div className='bg-white'>
-        <div className='w-[400px] mx-auto py-4'>
+        <div className=' md:w-[400px] lg:w-[400px] mx-auto py-4'>
             <div className='flex justify-center items-center'>
             <Link href='/'>
             <img className='w-[150px]' src='https://static.vecteezy.com/system/resources/thumbnails/019/136/319/small/amazon-logo-amazon-icon-free-free-vector.jpg' alt=''/>

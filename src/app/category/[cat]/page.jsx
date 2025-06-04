@@ -20,8 +20,8 @@ function page({params}) {
 
     <section className='categoryResult bg-white'>
       <div className='w-[98%] mx-auto py-5'>
-        <div className='flex justify between gap-2'>
-          <div className='w-[25%]'>
+        <div className='md:flex lg:flex justify between gap-2'>
+          <div className='hidden md:block lg:block w-[25%]'>
             <div className='font-bold'>Deals & Discounts</div>
             <div className='text-[14px] pb-2'>
               <div>All Discounts</div>
@@ -31,7 +31,7 @@ function page({params}) {
             <div className='font-bold'>Price</div>
             <div>$0 - $1000</div>
             <div className='flex gap-x-3'>
-              <div className='flex justify-center items-center'><input type='range' className='w-[180px]'/></div>
+              <div className='flex justify-center items-center'><input type='range' className=' md:w-[100px] lg:w-[180px]'/></div>
               <div className='border py-1 px-3 rounded-2xl flex justify-center items-center text-[14px]'>Go</div>
             </div>
             <div>
@@ -61,13 +61,13 @@ function page({params}) {
               <div className='text-[14px]'><input type='checkbox'/> Amazon Brands</div>
             </div>
           </div>
-          <div className='w-[75%]'>
+          <div className='md:w-[75%] lg:w-[75%] px-3'>
             <div className='font-bold text-[22px]'>Results</div>
             <div className='text-[gray] text-[14px]'>Check each product page for other buying options. Price and other details may vary based on product size and color.</div>
-            <div className='flex flex-wrap justify-items-start gap-3 py-3'>
+            <div className='md:flex lg:flex flex-wrap justify-items-start gap-3 py-3'>
               {product.map((a)=>(
-                <div className='w-[24%] border border-[#F5F5F5] shadow ' key={a.id}>
-                  <div className='bg-[#dbd8d8]' ><Link href={`/details/${a.id}`}><img src={a.thumbnail}/></Link></div>
+                <div className='md:w-[31.5%] lg:w-[24%] border border-[#F5F5F5] shadow flex md:block lg:block ' key={a.id}>
+                  <div className='md:bg-[#ddd8d8] lg:bg-[#ddd8d8] w-[30%] md:w-[100%] lg:w-[100%] flex items-center' ><Link href={`/details/${a.id}`}><img src={a.thumbnail}/></Link></div> 
                   <div className='productInfo p-2'>
                     <div><Link href={`/details/${a.id}`}>{a.title}</Link></div>
                     <div className='flex text-[14px] gap-1 pt-2'>

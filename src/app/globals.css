@@ -2,7 +2,7 @@
 
 @theme{
   --container-max-width-sm: 100%;
-  --container-max-width-md: 720px;
+  --container-max-width-md: 768px;
   --container-max-width-lg: 1310px;
 }
 
@@ -49,6 +49,12 @@
   
   .locationPopup.show, .categoryPopup.show{
     display: block;
+  }
+
+  .catPopup.show {
+    
+    left:0;
+    transition: 0.9s;
   }
 
     footer ul li:hover{

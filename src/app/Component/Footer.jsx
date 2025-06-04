@@ -4,13 +4,13 @@ import React from 'react'
 function Footer() {
   return (
     <>
-    <footer>
+    <footer className=''>
       
 
       <section className='middle bg-[#232F3E]'>
-        <div className='flex justify-between gap-9 py-9 text-[17px] w-[1000px] mx-auto'>
-          <div>
-            <h2 className='text-white font-bold py-2'>Get to Know Us</h2>
+        <div className='lg:flex md:flex justify-between gap-9 py-9 text-[17px] md:w-[1000px] lg:w-[1000px] mx-auto'>
+          <div className='px-4 pb-3'>
+            <h2 className='text-white font-bold py-2 '>Get to Know Us</h2>
             <ul className='text-[#DDDDDD] text-[14px]'>
               <li className='pb-1'><a href="">Careers</a></li>
               <li className='pb-1'><a href="">Blog</a></li>
@@ -20,7 +20,7 @@ function Footer() {
               <li className='pb-1'><a href="">Amazon Science</a></li>
             </ul>
           </div>
-          <div>
+          <div className='px-4 pb-3'>
             <h2 className='text-white font-bold py-2'>Make Money with Us</h2>
             <ul className='text-[#DDDDDD] text-[14px]'>
               <li className='pb-1'><a href="">Sell products on Amazon</a></li>
@@ -33,7 +33,7 @@ function Footer() {
               <li className='pb-1'><a href="">See More Make Money with Us</a></li>
             </ul>
           </div>
-          <div>
+          <div className='px-4 pb-3'>
             <h2 className='text-white font-bold py-2'>Amazon Payment Products</h2>
             <ul className='text-[#DDDDDD] text-[14px]'>
               <li className='pb-1'><a href="">Amazon Business Card</a></li>
@@ -42,7 +42,7 @@ function Footer() {
               <li className='pb-1'><a href="">Amazon Currency Converter</a></li>
             </ul>
           </div>
-          <div>
+          <div className='px-4 pb-3'>
             <h2 className='text-white font-bold py-2'>Let Us Help You</h2>
             <ul className='text-[#DDDDDD] text-[14px]'>
               <li className='pb-1'><a href="">Amazon and COVID-19</a></li>

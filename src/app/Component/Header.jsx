@@ -10,6 +10,7 @@ import { RxCross2 } from "react-icons/rx";
 import Link from 'next/link';
 import Image from 'next/image';
 import { CartContext } from './ContextProvider';
+import { CiUser } from "react-icons/ci";
 
 
 function Header() {
@@ -43,11 +44,19 @@ function Header() {
             document.querySelector('.categoryPopup').classList.toggle('show')
         }
 
+        document.querySelector('.cat').onclick=()=>{
+            document.querySelector('.catPopup').classList.add('show')
+        }
+
+        document.querySelector('.catPopupRemove').onclick=()=>{
+            document.querySelector('.catPopup').classList.remove('show')
+        }
+
     },[])
 
   return (
     <>
-    <header className='z-9999'>
+    <header className='hidden md:block lg:block z-9999'>
         <div className='top bg-[#161D28] text-[white]'>
             <div className='container mx-auto pt-2 pb-1 flex justify-evenly  relative  cursor-pointer '>
                 <div className='flex justify-center items-center w-[160px] p-1 me-2 h-[50px] overflow-hidden border border-transparent hover:border-white '><Link href='/'> <Image src='/Images/amazon-logo.jpg' width={140} height={130} alt=''/></Link></div>
@@ -63,7 +72,7 @@ function Header() {
                         <div>All</div>
                         <div><IoMdArrowDropdown /></div>
                     </div>
-                    <div><input className='bg-[white] text-[black] h-[40px] w-[620px]  px-2' type='text' name='search' placeholder='Search Amazon'/> </div>
+                    <div><input className='bg-[white] text-[black] md:w-[200px] h-[40px] lg:w-[620px]  px-2' type='text' name='search' placeholder='Search Amazon'/> </div>
                     <div className='bg-[#FEBD69] flex justify-center items-center h-[40px] px-3 hover:bg-[#F3A847] rounded-r-sm'><CiSearch color='black' size={25} /></div>
                 </div>
                 <div className='group me-3 p-1 border border-transparent hover:border-white'>
@@ -154,6 +163,52 @@ function Header() {
         </div>
     </header>
 
+
+    <section className=' md:hidden lg:hidden'>
+        <div className="container mx-auto px-3 bg-[#161D28] text-white">
+            <div className='flex justify-between'>
+                <div className='flex justify-center'>
+                    <div className='cat flex justify-center items-center z-99'><FaBars size={20} /></div>
+                <div className='flex justify-center items-center w-[160px] p-1 me-2 h-[50px] relative top-0 -left-5 border border-transparent hover:border-white '><Link href='/'> <Image src='/Images/amazon-logo.jpg' width={90} height={60} alt=''/></Link></div>
+                    
+                </div>
+                <div className='flex gap-3'>
+                    
+                    <div className='flex gap-1'>
+                        
+                        <div className='flex justify-center items-center'><Link href={`/register/login`}>Sign in</Link></div>
+                        <div className='flex justify-center items-center'><CiUser size={20} /></div>
+                    </div>
+
+                    <div className='flex justify-center items-center relative'><Link href={`/cart`}><FiShoppingCart size={20} /></Link></div>
+                     <div className='absolute top-0 right-3'>{state.cart.length}</div>
+                    
+                </div>
+            </div>
+            <div className='flex justify-between'>
+                 <div><input className='bg-[white] text-[black] rounded h-[40px] w-[143%]  px-2' type='text' name='search' placeholder='Search Amazon'/> </div>
+                    <div className='bg-[#FEBD69] flex justify-center items-center h-[40px] px-3 hover:bg-[#F3A847] rounded-r-sm'><CiSearch color='black' size={25} /></div>
+            </div>
+            <div className='flex gap-4 px-2 py-3 text-[16px] overflow-x-scroll'>
+                <div> Video</div>
+                <div> Deals</div>
+                <div> Books</div>
+                <div> Home</div>
+                <div> PC</div>
+                <div> Music</div>
+                <div> Video</div>
+            </div>
+        </div>
+        <div className='bg-[#232F3E] text-white'>
+                <div className='location px-2 py-3 flex gap-1'>
+                    <div className=''><IoLocationOutline size={20} /> </div>
+                    <div className='text-[14px] text-[#E6E6E6]'>Deliver to Nepal</div>
+                </div>
+            </div>
+
+    </section>
+
+
     <div className='locationPopup hidden'>
         <div className='w-[370px] bg-white center rounded-2xl border  z-99999'>
         <div className=''>
@@ -207,6 +262,33 @@ function Header() {
  
         </div>
     </div>
+    
+    <div className='catPopup absolute top-0 -left-[100%]  h-[85vh] w-[60%] z-99999'>
+        <div className=' bg-white'>
+            <div className='px-3 py-2 bg-[#161D28] text-white'>
+                <div className='flex justify-end pe-3 text-[12px] pb-1'>Your Account</div>
+                <div>Browse</div>
+                <div className='flex justify-between'>
+                <div className='font-semibold text-[20px]'>Amazon</div>
+                <div className='catPopupRemove'><RxCross2 /></div>
+                </div>
+            </div>
+            <div className='px-3'>
+                <div className='py-2'><Link href="/">Amazon Home</Link></div>
+                <div className='w-[98%] h-[1px] bg-[gray] my-2'></div>
+                <div>
+                    <div className='font-semibold'>Top Departments</div>
+                     <div className='w-[200px] h-[450px] overflow-y-scroll '>
+            {list.map((a)=>(
+                <div key={a.name}><Link href={`/category/${a.slug}`}> <div className='px-2 text-[14px] py-1 hover:bg-blue-700 hover:text-white'>{a.name}</div></Link></div>
+            ))}
+ 
+        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     
       

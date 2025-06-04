@@ -15,11 +15,11 @@ function page({params}) {
     <>
     <div className='bg-white'>
     <div className='container mx-auto'>
-        <div className='flex justify-evenly gap-2 py-5'>
-            <div className='w-[29%]'>
+        <div className='md:flex lg:flex justify-evenly gap-2 py-5'>
+            <div className='md:w-[20%] lg:w-[29%] flex justify-center items-center'>
                 <img src={product.thumbnail}/>
             </div>
-            <div className='details w-[45%]'>
+            <div className='details md:w-[45%] lg:w-[45%] px-4 '>
                 <div className='font-bold text-[22px]'>{product.title}</div>
                     <div className='line w-[100%] my-1 h-[1px] bg-[gray]'></div>
                     <div className='text-[24px] font-semibold'>$ {product.price}</div>
@@ -54,7 +54,7 @@ function page({params}) {
                 </div>
                 
             </div>
-            <div className='ship border border-[#c7c7c7] rounded w-[19%]'>
+            <div className='ship border border-[#c7c7c7] rounded md:w-[29%] lg:w-[19%] px-4'>
                 <div className="py-3 px-5">
                     <div className='text-[22px] font-semibold'>$ {product.price}</div>
                     <div className='text-[15px] text-gray-600 pt-2'>Shipping Charges   : $15</div>
